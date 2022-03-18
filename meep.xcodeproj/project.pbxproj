@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D440D0FE27E445A00045DEF2 /* TextComponents.swift */; };
 		D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */; };
 		D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */; };
 		D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8427DC03BB00B75D4A /* ViewController.swift */; };
@@ -15,6 +16,8 @@
 		D45C0D9827DC03BF00B75D4A /* meepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D9727DC03BF00B75D4A /* meepTests.swift */; };
 		D45C0DA227DC03BF00B75D4A /* meepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DA127DC03BF00B75D4A /* meepUITests.swift */; };
 		D45C0DA427DC03BF00B75D4A /* meepUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */; };
+		D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DB227DC157700B75D4A /* Extentions.swift */; };
+		D45C0DB627DC190900B75D4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D45C0DB527DC190900B75D4A /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D440D0FE27E445A00045DEF2 /* TextComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextComponents.swift; sourceTree = "<group>"; };
 		D45C0D7D27DC03BB00B75D4A /* meep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 		D45C0D9D27DC03BF00B75D4A /* meepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = meepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45C0DA127DC03BF00B75D4A /* meepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITests.swift; sourceTree = "<group>"; };
 		D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D45C0DB227DC157700B75D4A /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D45C0DB627DC190900B75D4A /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D440D0FD27E4458C0045DEF2 /* baseComponents */ = {
+			isa = PBXGroup;
+			children = (
+				D440D0FE27E445A00045DEF2 /* TextComponents.swift */,
+			);
+			path = baseComponents;
+			sourceTree = "<group>";
+		};
 		D45C0D7427DC03BB00B75D4A = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +111,9 @@
 		D45C0D7F27DC03BB00B75D4A /* meep */ = {
 			isa = PBXGroup;
 			children = (
+				D45C0DB127DC149B00B75D4A /* ui */,
+				D45C0DB027DC149200B75D4A /* util */,
 				D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */,
-				D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */,
-				D45C0D8427DC03BB00B75D4A /* ViewController.swift */,
 				D45C0D8927DC03BF00B75D4A /* Assets.xcassets */,
 				D45C0D8B27DC03BF00B75D4A /* LaunchScreen.storyboard */,
 				D45C0D8E27DC03BF00B75D4A /* Info.plist */,
@@ -124,6 +138,24 @@
 			path = meepUITests;
 			sourceTree = "<group>";
 		};
+		D45C0DB027DC149200B75D4A /* util */ = {
+			isa = PBXGroup;
+			children = (
+				D45C0DB227DC157700B75D4A /* Extentions.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		D45C0DB127DC149B00B75D4A /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				D440D0FD27E4458C0045DEF2 /* baseComponents */,
+				D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */,
+				D45C0D8427DC03BB00B75D4A /* ViewController.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +172,9 @@
 			dependencies = (
 			);
 			name = meep;
+			packageProductDependencies = (
+				D45C0DB527DC190900B75D4A /* SnapKit */,
+			);
 			productName = meep;
 			productReference = D45C0D7D27DC03BB00B75D4A /* meep.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +247,9 @@
 				Base,
 			);
 			mainGroup = D45C0D7427DC03BB00B75D4A;
+			packageReferences = (
+				D45C0DB427DC190900B75D4A /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = D45C0D7E27DC03BB00B75D4A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,6 +292,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */,
+				D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */,
 				D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */,
 				D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */,
 				D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */,
@@ -590,6 +630,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D45C0DB427DC190900B75D4A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D45C0DB527DC190900B75D4A /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D45C0DB427DC190900B75D4A /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D45C0D7527DC03BB00B75D4A /* Project object */;
 }
