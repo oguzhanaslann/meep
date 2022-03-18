@@ -55,3 +55,27 @@ func meepSysImage(
     
     return imageView
 }
+
+func meepImage (
+    name : String,
+    clipToBounds : Bool? = nil,
+    borderColor: CGColor? = nil,
+    borderWidth : CGFloat? = nil
+)  -> UIImageView {
+    let image = UIImage(named: name)
+    let imageView = UIImageView(image: image)
+    
+    if clipToBounds !=  nil {
+        imageView.clipsToBounds = clipToBounds!
+    }
+    
+    if borderColor !=  nil {
+        imageView.layer.borderColor = borderColor!
+    }
+    
+    if borderWidth !=  nil {
+        imageView.layer.borderWidth = borderWidth!
+    }
+    
+    return imageView
+}

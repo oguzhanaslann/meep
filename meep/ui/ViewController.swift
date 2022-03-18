@@ -9,74 +9,64 @@ import UIKit
 import SnapKit
 class ViewController: UIViewController {
     
-    let personProfilePhoto: UIImageView = {
-        let image = UIImage(named: "sample")
-        let imageView = UIImageView(image: image)
-        imageView.clipsToBounds = true
-        imageView.layer.borderColor =  UIColor.blue.cgColor
-        imageView.layer.borderWidth = 1
-        return imageView
-    }()
-  
-    let personName : UILabel =  meepSubHeader1(text: "Oğuzhan Aslan")
-
-    let ageIcon : UIImageView = meepSysImage(systemName: "calendar.circle")
-    
-    let ageText :UILabel = meepCaption(text: "22")
-    
-    let contactIcon : UIImageView = meepSysImage(systemName: "arrow.right")
-    
+    let tableView: UITableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        view.addSubview(personProfilePhoto)
-        view.addSubview(personName)
-        view.addSubview(ageIcon)
-        view.addSubview(ageText)
-        view.addSubview(contactIcon)
-        
-        
-        personProfilePhoto.snp.makeConstraints { make in
-            make.centerY.equalTo(self.view)
-            make.leftMargin.equalTo(8)
-            let dimensions = 74
-            make.width.equalTo(dimensions)
-            make.height.equalTo(dimensions)
-            personProfilePhoto.layer.cornerRadius = CGFloat((dimensions / 2))
-        }
-        
-        
-        personName.snp.makeConstraints { make in
-            make.centerY.equalTo(personProfilePhoto.snp.centerY)
-                .offset(-12)
-            
-            make.leading.equalTo(personProfilePhoto.snp.trailing)
-                .offset(8)
-            
-            make.trailing.equalTo(self.view.snp.trailing)
-                .inset(8)
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .singleLine
+        tableView.register(PersonListCell.self, forCellReuseIdentifier: PersonListCell.identifier)
        
-        }
-        
-        
-        ageIcon.snp.makeConstraints { make in
-            make.centerY.equalTo(personProfilePhoto.snp.centerY)
-                .offset(12)
-            make.leading.equalTo(personProfilePhoto.snp.trailing)
-                .offset(8)
-        }
-        
-        
-        ageText.snp.makeConstraints { make in
-            make.top.equalTo(personName.snp.bottom).offset(8)
-            make.left.equalTo(ageIcon.snp.left).offset(24)
-            make.right.equalTo(self.view.snp.right).offset(-16)
-        }
-        
-        contactIcon.snp.makeConstraints { make in
-            make.centerY.equalTo(self.view)
-            make.right.equalTo(self.view.snp.right).offset(-32)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.snp.makeConstraints { make in
+            make.center.equalTo(self.view)
+            make.left.equalTo(self.view.snp.left)
+            make.right.equalTo(self.view.snp.right)
+            make.top.equalTo(self.view.snp.top).offset(36)
+            make.bottom.equalTo(self.view.snp.bottom).offset(-36)
+
+
         }
     }
+}
+
+extension ViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: PersonListCell.identifier,
+            for: indexPath
+         )
+    
+        if cell == nil {
+            return UITableViewCell()
+        }
+        
+//        cell.textLabel?.text = "sometext for index : \(indexPath)"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+}
+
+extension ViewController: UITableViewDelegate{
+    
 }

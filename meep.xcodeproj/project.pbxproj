@@ -18,6 +18,7 @@
 		D45C0DA427DC03BF00B75D4A /* meepUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */; };
 		D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DB227DC157700B75D4A /* Extentions.swift */; };
 		D45C0DB627DC190900B75D4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D45C0DB527DC190900B75D4A /* SnapKit */; };
+		D4C1BFCA27E504EC00BBE455 /* PersonListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BFC927E504EC00BBE455 /* PersonListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		D45C0DA127DC03BF00B75D4A /* meepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITests.swift; sourceTree = "<group>"; };
 		D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D45C0DB227DC157700B75D4A /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		D4C1BFC927E504EC00BBE455 /* PersonListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,9 +151,18 @@
 		D45C0DB127DC149B00B75D4A /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				D440D0FD27E4458C0045DEF2 /* baseComponents */,
+				D4C1BFC727E504BF00BBE455 /* ui */,
 				D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */,
 				D45C0D8427DC03BB00B75D4A /* ViewController.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		D4C1BFC727E504BF00BBE455 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				D440D0FD27E4458C0045DEF2 /* baseComponents */,
+				D4C1BFC927E504EC00BBE455 /* PersonListCell.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -296,6 +307,7 @@
 				D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */,
 				D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */,
 				D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */,
+				D4C1BFCA27E504EC00BBE455 /* PersonListCell.swift in Sources */,
 				D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
