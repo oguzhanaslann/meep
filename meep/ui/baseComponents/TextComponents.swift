@@ -8,6 +8,30 @@
 import Foundation
 import UIKit
 
+func meepHeader1(
+    text : String,
+    color : UIColor = .black,
+    font : UIFont  = UIFont.boldSystemFont(ofSize: 28)
+) -> UILabel {
+    let label = UILabel()
+    label.text = text
+    label.textColor = color
+    label.font = font
+    return label
+}
+
+func meepHeader2(
+    text : String,
+    color : UIColor = .black,
+    font : UIFont  = UIFont.boldSystemFont(ofSize: 18)
+) -> UILabel {
+    let label = UILabel()
+    label.text = text
+    label.textColor = color
+    label.font = font
+    return label
+}
+
 func meepSubHeader1(
     text : String,
     color : UIColor = .black,

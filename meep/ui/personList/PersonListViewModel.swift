@@ -8,5 +8,8 @@
 import Foundation
 
 class PersonListViewModel: ViewModel {
-        
+    let personList : [Person] = [
+        Person(id: "id", name: "name :1 ", age: "age:1 "),
+        Person(id: "id", name: "name :2 ", age: "age:2 ")
+    ]
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+
 class ViewController: UIViewController {
     
     let tableView: UITableView = UITableView()
@@ -38,7 +39,7 @@ class ViewController: UIViewController {
 
 extension ViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return personListViewModel.personList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,14 +53,14 @@ extension ViewController : UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell?.setCellWith(person: Person(id: "id", name: "name : \(indexPath)", age: "age: \(indexPath)"))
+        cell?.setCellWith(person: personListViewModel.personList[indexPath.row])
         
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NSLog("clicked %d", indexPath.row)
-        
+        navigationController?.pushViewController(PersonDetailViewController(), animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

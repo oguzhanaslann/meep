@@ -13,6 +13,8 @@
 		D4583BD627E6EEDB004A2416 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BD527E6EEDB004A2416 /* ViewModel.swift */; };
 		D4583BD927E6EF1D004A2416 /* PersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BD827E6EF1D004A2416 /* PersonListViewModel.swift */; };
 		D4583BDB27E6EFCC004A2416 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BDA27E6EFCC004A2416 /* Injector.swift */; };
+		D4583BDE27E6F3DE004A2416 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BDD27E6F3DE004A2416 /* PersonDetailViewController.swift */; };
+		D4583BE127E707D1004A2416 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BE027E707D1004A2416 /* Color.swift */; };
 		D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */; };
 		D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */; };
 		D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8427DC03BB00B75D4A /* ViewController.swift */; };
@@ -49,6 +51,8 @@
 		D4583BD527E6EEDB004A2416 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D4583BD827E6EF1D004A2416 /* PersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewModel.swift; sourceTree = "<group>"; };
 		D4583BDA27E6EFCC004A2416 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
+		D4583BDD27E6F3DE004A2416 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		D4583BE027E707D1004A2416 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D45C0D7D27DC03BB00B75D4A /* meep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,22 @@
 			path = personList;
 			sourceTree = "<group>";
 		};
+		D4583BDC27E6F3C9004A2416 /* personDetail */ = {
+			isa = PBXGroup;
+			children = (
+				D4583BDD27E6F3DE004A2416 /* PersonDetailViewController.swift */,
+			);
+			path = personDetail;
+			sourceTree = "<group>";
+		};
+		D4583BDF27E707C3004A2416 /* theme */ = {
+			isa = PBXGroup;
+			children = (
+				D4583BE027E707D1004A2416 /* Color.swift */,
+			);
+			path = theme;
+			sourceTree = "<group>";
+		};
 		D45C0D7427DC03BB00B75D4A = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +209,8 @@
 		D45C0DB127DC149B00B75D4A /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				D4583BDF27E707C3004A2416 /* theme */,
+				D4583BDC27E6F3C9004A2416 /* personDetail */,
 				D4583BD727E6EF0D004A2416 /* personList */,
 				D440D0FD27E4458C0045DEF2 /* baseComponents */,
 				D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */,
@@ -338,7 +360,9 @@
 				D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */,
 				D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */,
 				D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */,
+				D4583BDE27E6F3DE004A2416 /* PersonDetailViewController.swift in Sources */,
 				D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */,
+				D4583BE127E707D1004A2416 /* Color.swift in Sources */,
 				D4583BCD27E6EE14004A2416 /* Person.swift in Sources */,
 				D4583BDB27E6EFCC004A2416 /* Injector.swift in Sources */,
 				D4C1BFCA27E504EC00BBE455 /* PersonListCell.swift in Sources */,
