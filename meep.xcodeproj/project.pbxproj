@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D440D0FE27E445A00045DEF2 /* TextComponents.swift */; };
+		D4583BCD27E6EE14004A2416 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BCC27E6EE14004A2416 /* Person.swift */; };
 		D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */; };
 		D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */; };
 		D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8427DC03BB00B75D4A /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		D440D0FE27E445A00045DEF2 /* TextComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextComponents.swift; sourceTree = "<group>"; };
+		D4583BCC27E6EE14004A2416 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D45C0D7D27DC03BB00B75D4A /* meep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				D440D0FD27E4458C0045DEF2 /* baseComponents */,
 				D4C1BFC927E504EC00BBE455 /* PersonListCell.swift */,
+				D4583BCC27E6EE14004A2416 /* Person.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */,
 				D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */,
 				D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */,
+				D4583BCD27E6EE14004A2416 /* Person.swift in Sources */,
 				D4C1BFCA27E504EC00BBE455 /* PersonListCell.swift in Sources */,
 				D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */,
 			);
