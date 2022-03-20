@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D440D0FE27E445A00045DEF2 /* TextComponents.swift */; };
 		D4583BCD27E6EE14004A2416 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BCC27E6EE14004A2416 /* Person.swift */; };
+		D4583BD027E6EE6B004A2416 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = D4583BCF27E6EE6B004A2416 /* Swinject */; };
+		D4583BD627E6EEDB004A2416 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BD527E6EEDB004A2416 /* ViewModel.swift */; };
+		D4583BD927E6EF1D004A2416 /* PersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BD827E6EF1D004A2416 /* PersonListViewModel.swift */; };
 		D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */; };
 		D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */; };
 		D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0D8427DC03BB00B75D4A /* ViewController.swift */; };
@@ -42,6 +45,8 @@
 /* Begin PBXFileReference section */
 		D440D0FE27E445A00045DEF2 /* TextComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextComponents.swift; sourceTree = "<group>"; };
 		D4583BCC27E6EE14004A2416 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		D4583BD527E6EEDB004A2416 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D4583BD827E6EF1D004A2416 /* PersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewModel.swift; sourceTree = "<group>"; };
 		D45C0D7D27DC03BB00B75D4A /* meep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D45C0DB627DC190900B75D4A /* SnapKit in Frameworks */,
+				D4583BD027E6EE6B004A2416 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +98,31 @@
 			path = baseComponents;
 			sourceTree = "<group>";
 		};
+		D4583BD327E6EEA7004A2416 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				D4583BCC27E6EE14004A2416 /* Person.swift */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		D4583BD427E6EECE004A2416 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				D4583BD527E6EEDB004A2416 /* ViewModel.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		D4583BD727E6EF0D004A2416 /* personList */ = {
+			isa = PBXGroup;
+			children = (
+				D4C1BFC927E504EC00BBE455 /* PersonListCell.swift */,
+				D4583BD827E6EF1D004A2416 /* PersonListViewModel.swift */,
+			);
+			path = personList;
+			sourceTree = "<group>";
+		};
 		D45C0D7427DC03BB00B75D4A = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +146,8 @@
 		D45C0D7F27DC03BB00B75D4A /* meep */ = {
 			isa = PBXGroup;
 			children = (
+				D4583BD427E6EECE004A2416 /* base */,
+				D4583BD327E6EEA7004A2416 /* domain */,
 				D45C0DB127DC149B00B75D4A /* ui */,
 				D45C0DB027DC149200B75D4A /* util */,
 				D45C0D8027DC03BB00B75D4A /* AppDelegate.swift */,
@@ -153,19 +186,10 @@
 		D45C0DB127DC149B00B75D4A /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				D4C1BFC727E504BF00BBE455 /* ui */,
+				D4583BD727E6EF0D004A2416 /* personList */,
+				D440D0FD27E4458C0045DEF2 /* baseComponents */,
 				D45C0D8227DC03BB00B75D4A /* SceneDelegate.swift */,
 				D45C0D8427DC03BB00B75D4A /* ViewController.swift */,
-			);
-			path = ui;
-			sourceTree = "<group>";
-		};
-		D4C1BFC727E504BF00BBE455 /* ui */ = {
-			isa = PBXGroup;
-			children = (
-				D440D0FD27E4458C0045DEF2 /* baseComponents */,
-				D4C1BFC927E504EC00BBE455 /* PersonListCell.swift */,
-				D4583BCC27E6EE14004A2416 /* Person.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -188,6 +212,7 @@
 			name = meep;
 			packageProductDependencies = (
 				D45C0DB527DC190900B75D4A /* SnapKit */,
+				D4583BCF27E6EE6B004A2416 /* Swinject */,
 			);
 			productName = meep;
 			productReference = D45C0D7D27DC03BB00B75D4A /* meep.app */;
@@ -263,6 +288,7 @@
 			mainGroup = D45C0D7427DC03BB00B75D4A;
 			packageReferences = (
 				D45C0DB427DC190900B75D4A /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D4583BCE27E6EE6B004A2416 /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = D45C0D7E27DC03BB00B75D4A /* Products */;
 			projectDirPath = "";
@@ -312,7 +338,9 @@
 				D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */,
 				D4583BCD27E6EE14004A2416 /* Person.swift in Sources */,
 				D4C1BFCA27E504EC00BBE455 /* PersonListCell.swift in Sources */,
+				D4583BD627E6EEDB004A2416 /* ViewModel.swift in Sources */,
 				D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */,
+				D4583BD927E6EF1D004A2416 /* PersonListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +676,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D4583BCE27E6EE6B004A2416 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		D45C0DB427DC190900B75D4A /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -659,6 +695,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D4583BCF27E6EE6B004A2416 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4583BCE27E6EE6B004A2416 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
 		D45C0DB527DC190900B75D4A /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D45C0DB427DC190900B75D4A /* XCRemoteSwiftPackageReference "SnapKit" */;
