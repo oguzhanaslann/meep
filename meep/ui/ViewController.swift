@@ -31,8 +31,6 @@ class ViewController: UIViewController {
             make.right.equalTo(self.view.snp.right)
             make.top.equalTo(self.view.snp.top).offset(36)
             make.bottom.equalTo(self.view.snp.bottom).offset(-36)
-
-
         }
     }
 }
@@ -47,22 +45,24 @@ extension ViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: PersonListCell.identifier,
             for: indexPath
-         )
+         ) as? PersonListCell
     
         if cell == nil {
             return UITableViewCell()
         }
+
+        cell?.setCellWith(person: Person(id: "id", name: "name : \(indexPath)", age: "age: \(indexPath)"))
         
-//        cell.textLabel?.text = "sometext for index : \(indexPath)"
-        return cell
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        NSLog("clicked %d", indexPath.row)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 88
     }
     
 }
