@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     
     let tableView: UITableView = UITableView()
     
+    private let personListViewModel = Inject.shared.injectPersonListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -20,7 +22,6 @@ class ViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .singleLine
         tableView.register(PersonListCell.self, forCellReuseIdentifier: PersonListCell.identifier)
-       
     }
     
     override func viewDidLayoutSubviews() {
