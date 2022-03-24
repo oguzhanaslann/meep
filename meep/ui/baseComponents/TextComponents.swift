@@ -44,6 +44,31 @@ func meepSubHeader1(
     return label
 }
 
+func meepBody1(
+    text : String,
+    color : UIColor = .black,
+    font : UIFont  = .systemFont(ofSize: 16, weight: .regular)
+) -> UILabel {
+    let label = UILabel()
+    label.text = text
+    label.textColor = color
+    label.font = font
+    return label
+}
+
+func meepBody2(
+    text : String,
+    color : UIColor = .black,
+    font : UIFont  = .systemFont(ofSize: 14, weight: .regular)
+) -> UILabel {
+    let label = UILabel()
+    label.text = text
+    label.textColor = color
+    label.font = font
+    return label
+}
+
+
 func meepCaption(
     text : String,
     color : UIColor = .gray,
