@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40D0E0B27EE4564005F10CD /* PersonListInformationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D0E0A27EE4564005F10CD /* PersonListInformationProvider.swift */; };
+		D40D0E0D27EE45BE005F10CD /* PersonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D0E0C27EE45BE005F10CD /* PersonRepository.swift */; };
 		D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D440D0FE27E445A00045DEF2 /* TextComponents.swift */; };
 		D4583BCD27E6EE14004A2416 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BCC27E6EE14004A2416 /* Person.swift */; };
 		D4583BD027E6EE6B004A2416 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = D4583BCF27E6EE6B004A2416 /* Swinject */; };
@@ -46,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D40D0E0A27EE4564005F10CD /* PersonListInformationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListInformationProvider.swift; sourceTree = "<group>"; };
+		D40D0E0C27EE45BE005F10CD /* PersonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRepository.swift; sourceTree = "<group>"; };
+		D40D0E0E27EE5112005F10CD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D440D0FE27E445A00045DEF2 /* TextComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextComponents.swift; sourceTree = "<group>"; };
 		D4583BCC27E6EE14004A2416 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D4583BD527E6EEDB004A2416 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -96,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D40D0E0927EE452C005F10CD /* datasource */ = {
+			isa = PBXGroup;
+			children = (
+				D40D0E0A27EE4564005F10CD /* PersonListInformationProvider.swift */,
+				D40D0E0C27EE45BE005F10CD /* PersonRepository.swift */,
+			);
+			path = datasource;
+			sourceTree = "<group>";
+		};
 		D440D0FD27E4458C0045DEF2 /* baseComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				D4583BD427E6EECE004A2416 /* base */,
+				D40D0E0927EE452C005F10CD /* datasource */,
 				D4583BD327E6EEA7004A2416 /* domain */,
 				D45C0DB127DC149B00B75D4A /* ui */,
 				D45C0DB027DC149200B75D4A /* util */,
@@ -177,6 +192,7 @@
 				D45C0D8927DC03BF00B75D4A /* Assets.xcassets */,
 				D45C0D8B27DC03BF00B75D4A /* LaunchScreen.storyboard */,
 				D45C0D8E27DC03BF00B75D4A /* Info.plist */,
+				D40D0E0E27EE5112005F10CD /* MyPlayground.playground */,
 			);
 			path = meep;
 			sourceTree = "<group>";
@@ -363,10 +379,12 @@
 				D4583BDE27E6F3DE004A2416 /* PersonDetailViewController.swift in Sources */,
 				D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */,
 				D4583BE127E707D1004A2416 /* Color.swift in Sources */,
+				D40D0E0D27EE45BE005F10CD /* PersonRepository.swift in Sources */,
 				D4583BCD27E6EE14004A2416 /* Person.swift in Sources */,
 				D4583BDB27E6EFCC004A2416 /* Injector.swift in Sources */,
 				D4C1BFCA27E504EC00BBE455 /* PersonListCell.swift in Sources */,
 				D4583BD627E6EEDB004A2416 /* ViewModel.swift in Sources */,
+				D40D0E0B27EE4564005F10CD /* PersonListInformationProvider.swift in Sources */,
 				D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */,
 				D4583BD927E6EF1D004A2416 /* PersonListViewModel.swift in Sources */,
 			);

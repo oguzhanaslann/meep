@@ -24,9 +24,21 @@ class Inject {
         registerDependencyIfNotRegistered(
             dependency: PersonListViewModel.self,
             onRegisterNeeded: { resolver in
-                PersonListViewModel()
+                PersonListViewModel(
+                    personInfoProvider: self.injectPersonInfoProvider()
+                )
             }
         )
         return dependencyContainer.resolve(PersonListViewModel.self)!
+    }
+    
+    func injectPersonInfoProvider() -> PersonListInformationProvider {
+        registerDependencyIfNotRegistered(
+            dependency: PersonRepository.self,
+            onRegisterNeeded: { resolver in
+                PersonRepository()
+            }
+        )
+        return dependencyContainer.resolve(PersonRepository.self)!
     }
 }

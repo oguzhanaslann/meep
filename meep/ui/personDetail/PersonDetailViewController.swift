@@ -12,7 +12,6 @@ import MapKit
 
 class PersonDetailViewController : UIViewController {
    
-
     private let personProfilePhoto: UIImageView = meepImage(
         name: "sample",
         clipToBounds: true,
@@ -77,7 +76,7 @@ class PersonDetailViewController : UIViewController {
         scrollView.addSubview(personUserName)
         scrollView.addSubview(profileBackgroundView)
         scrollView.addSubview(personContactInfoContainer)
-        scrollView.addSubview(personLocationMapView)
+       
         
         let backgroundColor : UIColor = backgroundColor
         view.backgroundColor = backgroundColor
@@ -146,6 +145,11 @@ class PersonDetailViewController : UIViewController {
             make.left.equalTo(personContactInfoContainer.snp.left).offset(16)
         }
         
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        scrollView.addSubview(personLocationMapView)
         personLocationMapView.snp.makeConstraints { make in
             make.top.equalTo(personContactInfoContainer.snp.bottom).offset(16)
             make.right.equalTo(self.view.snp.right).offset(-16)

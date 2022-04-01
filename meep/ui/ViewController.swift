@@ -7,12 +7,25 @@
 
 import UIKit
 import SnapKit
-
+import Combine
+/*
+    todo :
+        1 - get data from repo
+            1.1- use MVVM and publish library
+            1.2- use ALOMIFIRE
+        2 - save these data into local
+        3-  connnect UI with these
+        4-  on open detail page get id as parameter and load content with that. And, While doing that show lottie anim.
+ 
+ */
 class ViewController: UIViewController {
     
     let tableView: UITableView = UITableView()
     
     private let personListViewModel = Inject.shared.injectPersonListViewModel()
+    private var personList : [Person] = []
+    
+    var observer : AnyCancellable? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +36,15 @@ class ViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .singleLine
         tableView.register(PersonListCell.self, forCellReuseIdentifier: PersonListCell.identifier)
+        
+        
+        observer = personListViewModel.publisher.sink { personList in
+            print("observed")
+            self.personList = (personList)
+            self.tableView.reloadData()
+        }
+        
+        personListViewModel.callPeopleList()
     }
     
     override func viewDidLayoutSubviews() {
@@ -39,7 +61,7 @@ class ViewController: UIViewController {
 
 extension ViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return personListViewModel.personList.count
+        return personList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,7 +75,7 @@ extension ViewController : UITableViewDataSource {
             return UITableViewCell()
         }
 
-        cell?.setCellWith(person: personListViewModel.personList[indexPath.row])
+        cell?.setCellWith(person: personList[indexPath.row])
         
         return cell!
     }

@@ -6,10 +6,22 @@
 //
 
 import Foundation
+import Combine
 
 class PersonListViewModel: ViewModel {
-    let personList : [Person] = [
-        Person(id: "id", name: "name :1 ", age: "age:1 "),
-        Person(id: "id", name: "name :2 ", age: "age:2 ")
-    ]
+    
+    private let personInfoProvider : PersonListInformationProvider
+    
+    let subject = PassthroughSubject<[Person], Never>()
+    let publisher: AnyPublisher<[Person], Never>
+    
+    init(personInfoProvider : PersonListInformationProvider) {
+        self.personInfoProvider = personInfoProvider
+        publisher = subject.eraseToAnyPublisher()
+    }
+    
+    func callPeopleList(){
+        let list = personInfoProvider.getPersonList()
+        subject.send(list)
+    }
 }
