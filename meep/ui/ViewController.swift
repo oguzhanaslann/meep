@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Combine
+import Alamofire
 /*
     todo :
         1 - get data from repo
@@ -39,12 +40,12 @@ class ViewController: UIViewController {
         
         
         observer = personListViewModel.publisher.sink { personList in
-            print("observed")
             self.personList = (personList)
             self.tableView.reloadData()
         }
         
         personListViewModel.callPeopleList()
+        
     }
     
     override func viewDidLayoutSubviews() {

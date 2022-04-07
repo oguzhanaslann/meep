@@ -32,13 +32,39 @@ class Inject {
         return dependencyContainer.resolve(PersonListViewModel.self)!
     }
     
-    func injectPersonInfoProvider() -> PersonListInformationProvider {
+    func injectPersonInfoProvider() -> PeopleListInformationProvider {
         registerDependencyIfNotRegistered(
-            dependency: PersonRepository.self,
+            dependency: PeopleRepository.self,
             onRegisterNeeded: { resolver in
-                PersonRepository()
+                PeopleRepository(
+                    peopleLocalAPI: self.injectPeopleLocalAPI(),
+                    peopleNetworkAPI: self.injectPeopleNetworkAPI()
+                )
             }
         )
-        return dependencyContainer.resolve(PersonRepository.self)!
+        return dependencyContainer.resolve(PeopleRepository.self)!
+    }
+    
+    func injectPeopleLocalAPI() -> PeopleLocalAPI {
+        
+
+        
+        registerDependencyIfNotRegistered(
+            dependency: PeopleLocalSource.self,
+            onRegisterNeeded: { resolver in
+                PeopleLocalSource()
+            }
+        )
+        return dependencyContainer.resolve(PeopleLocalSource.self)!
+    }
+    
+    func injectPeopleNetworkAPI() -> PeopleNetworkAPI{
+        registerDependencyIfNotRegistered(
+            dependency: RandomUserClient.self,
+            onRegisterNeeded: { resolver in
+                RandomUserClient()
+            }
+        )
+        return dependencyContainer.resolve(RandomUserClient.self)!
     }
 }

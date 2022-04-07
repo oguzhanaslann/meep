@@ -10,18 +10,27 @@ import Combine
 
 class PersonListViewModel: ViewModel {
     
-    private let personInfoProvider : PersonListInformationProvider
+    private let personInfoProvider : PeopleListInformationProvider
     
     let subject = PassthroughSubject<[Person], Never>()
     let publisher: AnyPublisher<[Person], Never>
     
-    init(personInfoProvider : PersonListInformationProvider) {
+    init(personInfoProvider : PeopleListInformationProvider) {
         self.personInfoProvider = personInfoProvider
         publisher = subject.eraseToAnyPublisher()
     }
     
     func callPeopleList(){
-        let list = personInfoProvider.getPersonList()
-        subject.send(list)
+        let list = personInfoProvider.getPersonList(
+            onLoading: {},
+            onComplation: { personListResult in
+                if let list = personListResult.value {
+                    self.subject.send(list)
+                }
+              
+            }
+        )
+
+   
     }
 }

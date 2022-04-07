@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D40D0E0B27EE4564005F10CD /* PersonListInformationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D0E0A27EE4564005F10CD /* PersonListInformationProvider.swift */; };
-		D40D0E0D27EE45BE005F10CD /* PersonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D0E0C27EE45BE005F10CD /* PersonRepository.swift */; };
+		D40D0E0B27EE4564005F10CD /* PeopleListInformationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D0E0A27EE4564005F10CD /* PeopleListInformationProvider.swift */; };
+		D40D0E0D27EE45BE005F10CD /* PeopleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D0E0C27EE45BE005F10CD /* PeopleRepository.swift */; };
+		D426BFA427F883A500A11E9A /* PeopleLocalSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426BFA327F883A500A11E9A /* PeopleLocalSource.swift */; };
+		D426BFA727F8848000A11E9A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D426BFA627F8848000A11E9A /* Alamofire */; };
+		D426BFA927F8900200A11E9A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426BFA827F8900200A11E9A /* Result.swift */; };
+		D426BFAB27F896D900A11E9A /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426BFAA27F896D900A11E9A /* NetworkModels.swift */; };
 		D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D440D0FE27E445A00045DEF2 /* TextComponents.swift */; };
 		D4583BCD27E6EE14004A2416 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4583BCC27E6EE14004A2416 /* Person.swift */; };
 		D4583BD027E6EE6B004A2416 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = D4583BCF27E6EE6B004A2416 /* Swinject */; };
@@ -27,6 +31,9 @@
 		D45C0DA427DC03BF00B75D4A /* meepUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */; };
 		D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DB227DC157700B75D4A /* Extentions.swift */; };
 		D45C0DB627DC190900B75D4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D45C0DB527DC190900B75D4A /* SnapKit */; };
+		D48FE79127F7B51C00CCFBF1 /* PeopleNetworlAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE79027F7B51C00CCFBF1 /* PeopleNetworlAPI.swift */; };
+		D48FE79527F7B56B00CCFBF1 /* RandomUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE79427F7B56B00CCFBF1 /* RandomUserClient.swift */; };
+		D48FE79727F7B5C500CCFBF1 /* PeopleLocalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE79627F7B5C500CCFBF1 /* PeopleLocalAPI.swift */; };
 		D4C1BFCA27E504EC00BBE455 /* PersonListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BFC927E504EC00BBE455 /* PersonListCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,9 +55,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D40D0E0A27EE4564005F10CD /* PersonListInformationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListInformationProvider.swift; sourceTree = "<group>"; };
-		D40D0E0C27EE45BE005F10CD /* PersonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRepository.swift; sourceTree = "<group>"; };
+		D40D0E0A27EE4564005F10CD /* PeopleListInformationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListInformationProvider.swift; sourceTree = "<group>"; };
+		D40D0E0C27EE45BE005F10CD /* PeopleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleRepository.swift; sourceTree = "<group>"; };
 		D40D0E0E27EE5112005F10CD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D426BFA327F883A500A11E9A /* PeopleLocalSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLocalSource.swift; sourceTree = "<group>"; };
+		D426BFA827F8900200A11E9A /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		D426BFAA27F896D900A11E9A /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
 		D440D0FE27E445A00045DEF2 /* TextComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextComponents.swift; sourceTree = "<group>"; };
 		D4583BCC27E6EE14004A2416 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D4583BD527E6EEDB004A2416 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -71,6 +81,9 @@
 		D45C0DA127DC03BF00B75D4A /* meepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITests.swift; sourceTree = "<group>"; };
 		D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D45C0DB227DC157700B75D4A /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		D48FE79027F7B51C00CCFBF1 /* PeopleNetworlAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleNetworlAPI.swift; sourceTree = "<group>"; };
+		D48FE79427F7B56B00CCFBF1 /* RandomUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserClient.swift; sourceTree = "<group>"; };
+		D48FE79627F7B5C500CCFBF1 /* PeopleLocalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLocalAPI.swift; sourceTree = "<group>"; };
 		D4C1BFC927E504EC00BBE455 /* PersonListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D426BFA727F8848000A11E9A /* Alamofire in Frameworks */,
 				D45C0DB627DC190900B75D4A /* SnapKit in Frameworks */,
 				D4583BD027E6EE6B004A2416 /* Swinject in Frameworks */,
 			);
@@ -104,8 +118,9 @@
 		D40D0E0927EE452C005F10CD /* datasource */ = {
 			isa = PBXGroup;
 			children = (
-				D40D0E0A27EE4564005F10CD /* PersonListInformationProvider.swift */,
-				D40D0E0C27EE45BE005F10CD /* PersonRepository.swift */,
+				D48FE78F27F7B4FA00CCFBF1 /* repository */,
+				D48FE78E27F7B4F100CCFBF1 /* local */,
+				D48FE78D27F7B4E400CCFBF1 /* network */,
 			);
 			path = datasource;
 			sourceTree = "<group>";
@@ -131,6 +146,7 @@
 			children = (
 				D4583BD527E6EEDB004A2416 /* ViewModel.swift */,
 				D4583BDA27E6EFCC004A2416 /* Injector.swift */,
+				D426BFA827F8900200A11E9A /* Result.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -235,6 +251,34 @@
 			path = ui;
 			sourceTree = "<group>";
 		};
+		D48FE78D27F7B4E400CCFBF1 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				D48FE79027F7B51C00CCFBF1 /* PeopleNetworlAPI.swift */,
+				D48FE79427F7B56B00CCFBF1 /* RandomUserClient.swift */,
+				D426BFAA27F896D900A11E9A /* NetworkModels.swift */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		D48FE78E27F7B4F100CCFBF1 /* local */ = {
+			isa = PBXGroup;
+			children = (
+				D48FE79627F7B5C500CCFBF1 /* PeopleLocalAPI.swift */,
+				D426BFA327F883A500A11E9A /* PeopleLocalSource.swift */,
+			);
+			path = local;
+			sourceTree = "<group>";
+		};
+		D48FE78F27F7B4FA00CCFBF1 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				D40D0E0A27EE4564005F10CD /* PeopleListInformationProvider.swift */,
+				D40D0E0C27EE45BE005F10CD /* PeopleRepository.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +298,7 @@
 			packageProductDependencies = (
 				D45C0DB527DC190900B75D4A /* SnapKit */,
 				D4583BCF27E6EE6B004A2416 /* Swinject */,
+				D426BFA627F8848000A11E9A /* Alamofire */,
 			);
 			productName = meep;
 			productReference = D45C0D7D27DC03BB00B75D4A /* meep.app */;
@@ -330,6 +375,7 @@
 			packageReferences = (
 				D45C0DB427DC190900B75D4A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D4583BCE27E6EE6B004A2416 /* XCRemoteSwiftPackageReference "Swinject" */,
+				D426BFA527F8848000A11E9A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = D45C0D7E27DC03BB00B75D4A /* Products */;
 			projectDirPath = "";
@@ -373,20 +419,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D426BFAB27F896D900A11E9A /* NetworkModels.swift in Sources */,
+				D48FE79127F7B51C00CCFBF1 /* PeopleNetworlAPI.swift in Sources */,
+				D48FE79727F7B5C500CCFBF1 /* PeopleLocalAPI.swift in Sources */,
+				D426BFA927F8900200A11E9A /* Result.swift in Sources */,
 				D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */,
 				D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */,
 				D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */,
 				D4583BDE27E6F3DE004A2416 /* PersonDetailViewController.swift in Sources */,
 				D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */,
 				D4583BE127E707D1004A2416 /* Color.swift in Sources */,
-				D40D0E0D27EE45BE005F10CD /* PersonRepository.swift in Sources */,
+				D40D0E0D27EE45BE005F10CD /* PeopleRepository.swift in Sources */,
 				D4583BCD27E6EE14004A2416 /* Person.swift in Sources */,
 				D4583BDB27E6EFCC004A2416 /* Injector.swift in Sources */,
+				D426BFA427F883A500A11E9A /* PeopleLocalSource.swift in Sources */,
 				D4C1BFCA27E504EC00BBE455 /* PersonListCell.swift in Sources */,
 				D4583BD627E6EEDB004A2416 /* ViewModel.swift in Sources */,
-				D40D0E0B27EE4564005F10CD /* PersonListInformationProvider.swift in Sources */,
+				D40D0E0B27EE4564005F10CD /* PeopleListInformationProvider.swift in Sources */,
 				D45C0D8327DC03BB00B75D4A /* SceneDelegate.swift in Sources */,
 				D4583BD927E6EF1D004A2416 /* PersonListViewModel.swift in Sources */,
+				D48FE79527F7B56B00CCFBF1 /* RandomUserClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,6 +774,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D426BFA527F8848000A11E9A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.5.0;
+			};
+		};
 		D4583BCE27E6EE6B004A2416 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject";
@@ -741,6 +801,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D426BFA627F8848000A11E9A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D426BFA527F8848000A11E9A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		D4583BCF27E6EE6B004A2416 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D4583BCE27E6EE6B004A2416 /* XCRemoteSwiftPackageReference "Swinject" */;
