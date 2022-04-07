@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class PersonListCell : UITableViewCell {
     
@@ -94,8 +95,10 @@ class PersonListCell : UITableViewCell {
     }
         
     func setCellWith(person data  : Person) {
-        personName.text = data.name
+        personName.text = data.fullName
         ageText.text = data.age
+        let url = URL(string: data.image)
+        personProfilePhoto.kf.setImage(with: url)
     }
     
 }

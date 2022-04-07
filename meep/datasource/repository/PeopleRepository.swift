@@ -34,8 +34,9 @@ class PeopleRepository : PeopleListInformationProvider {
                         people.append(
                             Person(
                                 id: result.id?.name ?? "",
-                                name: result.name?.first ?? "",
-                                age: String(result.dob?.age ?? 0)
+                                fullName: ("\(result.name?.first ?? "") \(result.name?.last ?? "")"),
+                                age: String(result.dob?.age ?? 0),
+                                image: String(result.picture?.thumbnail ?? "")
                             )
                         )
                     })
