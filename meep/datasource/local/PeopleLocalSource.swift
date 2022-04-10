@@ -9,5 +9,9 @@ import Foundation
 
 
 class PeopleLocalSource : PeopleLocalAPI {
-    
+    let peopleDB : PeopleDatabase
+
+    init(peopleDb: PeopleDatabase) {
+        self.peopleDB = peopleDb
+    }
 }

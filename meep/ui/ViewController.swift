@@ -11,9 +11,6 @@ import Combine
 import Alamofire
 /*
     todo :
-        1 - get data from repo
-            1.1- use MVVM and publish library
-            1.2- use ALOMIFIRE
         2 - save these data into local
         3-  connnect UI with these
         4-  on open detail page get id as parameter and load content with that. And, While doing that show lottie anim.
@@ -83,6 +80,7 @@ extension ViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NSLog("clicked %d", indexPath.row)
+        let personId = personList[indexPath.row].id
         navigationController?.pushViewController(PersonDetailViewController(), animated: true)
     }
     

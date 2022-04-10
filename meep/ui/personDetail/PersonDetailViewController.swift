@@ -61,7 +61,6 @@ class PersonDetailViewController : UIViewController {
         view.isUserInteractionEnabled = true
         return view
     }()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()

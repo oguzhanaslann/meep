@@ -31,9 +31,12 @@
 		D45C0DA427DC03BF00B75D4A /* meepUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */; };
 		D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DB227DC157700B75D4A /* Extentions.swift */; };
 		D45C0DB627DC190900B75D4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D45C0DB527DC190900B75D4A /* SnapKit */; };
+		D489DE022802B8AA006FA729 /* PeopleDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489DE012802B8AA006FA729 /* PeopleDatabase.swift */; };
+		D489DE042802BF0E006FA729 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489DE032802BF0E006FA729 /* UserEntity.swift */; };
 		D48FE79127F7B51C00CCFBF1 /* PeopleNetworlAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE79027F7B51C00CCFBF1 /* PeopleNetworlAPI.swift */; };
 		D48FE79527F7B56B00CCFBF1 /* RandomUserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE79427F7B56B00CCFBF1 /* RandomUserClient.swift */; };
 		D48FE79727F7B5C500CCFBF1 /* PeopleLocalAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE79627F7B5C500CCFBF1 /* PeopleLocalAPI.swift */; };
+		D4A12FD62800DCDC003BF080 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = D4A12FD52800DCDC003BF080 /* SQLite */; };
 		D4C1BFCA27E504EC00BBE455 /* PersonListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BFC927E504EC00BBE455 /* PersonListCell.swift */; };
 		D4E2990F27FF9C6800A0B7E3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D4E2990E27FF9C6800A0B7E3 /* Kingfisher */; };
 /* End PBXBuildFile section */
@@ -82,6 +85,8 @@
 		D45C0DA127DC03BF00B75D4A /* meepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITests.swift; sourceTree = "<group>"; };
 		D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D45C0DB227DC157700B75D4A /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		D489DE012802B8AA006FA729 /* PeopleDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDatabase.swift; sourceTree = "<group>"; };
+		D489DE032802BF0E006FA729 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		D48FE79027F7B51C00CCFBF1 /* PeopleNetworlAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleNetworlAPI.swift; sourceTree = "<group>"; };
 		D48FE79427F7B56B00CCFBF1 /* RandomUserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserClient.swift; sourceTree = "<group>"; };
 		D48FE79627F7B5C500CCFBF1 /* PeopleLocalAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLocalAPI.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A12FD62800DCDC003BF080 /* SQLite in Frameworks */,
 				D4E2990F27FF9C6800A0B7E3 /* Kingfisher in Frameworks */,
 				D426BFA727F8848000A11E9A /* Alamofire in Frameworks */,
 				D45C0DB627DC190900B75D4A /* SnapKit in Frameworks */,
@@ -268,6 +274,8 @@
 			children = (
 				D48FE79627F7B5C500CCFBF1 /* PeopleLocalAPI.swift */,
 				D426BFA327F883A500A11E9A /* PeopleLocalSource.swift */,
+				D489DE012802B8AA006FA729 /* PeopleDatabase.swift */,
+				D489DE032802BF0E006FA729 /* UserEntity.swift */,
 			);
 			path = local;
 			sourceTree = "<group>";
@@ -302,6 +310,7 @@
 				D4583BCF27E6EE6B004A2416 /* Swinject */,
 				D426BFA627F8848000A11E9A /* Alamofire */,
 				D4E2990E27FF9C6800A0B7E3 /* Kingfisher */,
+				D4A12FD52800DCDC003BF080 /* SQLite */,
 			);
 			productName = meep;
 			productReference = D45C0D7D27DC03BB00B75D4A /* meep.app */;
@@ -380,6 +389,7 @@
 				D4583BCE27E6EE6B004A2416 /* XCRemoteSwiftPackageReference "Swinject" */,
 				D426BFA527F8848000A11E9A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D4E2990D27FF9C6800A0B7E3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D4A12FD42800DCDC003BF080 /* XCRemoteSwiftPackageReference "SQLite" */,
 			);
 			productRefGroup = D45C0D7E27DC03BB00B75D4A /* Products */;
 			projectDirPath = "";
@@ -427,12 +437,14 @@
 				D48FE79127F7B51C00CCFBF1 /* PeopleNetworlAPI.swift in Sources */,
 				D48FE79727F7B5C500CCFBF1 /* PeopleLocalAPI.swift in Sources */,
 				D426BFA927F8900200A11E9A /* Result.swift in Sources */,
+				D489DE022802B8AA006FA729 /* PeopleDatabase.swift in Sources */,
 				D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */,
 				D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */,
 				D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */,
 				D4583BDE27E6F3DE004A2416 /* PersonDetailViewController.swift in Sources */,
 				D45C0D8127DC03BB00B75D4A /* AppDelegate.swift in Sources */,
 				D4583BE127E707D1004A2416 /* Color.swift in Sources */,
+				D489DE042802BF0E006FA729 /* UserEntity.swift in Sources */,
 				D40D0E0D27EE45BE005F10CD /* PeopleRepository.swift in Sources */,
 				D4583BCD27E6EE14004A2416 /* Person.swift in Sources */,
 				D4583BDB27E6EFCC004A2416 /* Injector.swift in Sources */,
@@ -802,6 +814,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		D4A12FD42800DCDC003BF080 /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
 		D4E2990D27FF9C6800A0B7E3 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -827,6 +847,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D45C0DB427DC190900B75D4A /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		D4A12FD52800DCDC003BF080 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4A12FD42800DCDC003BF080 /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
 		};
 		D4E2990E27FF9C6800A0B7E3 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

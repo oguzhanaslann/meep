@@ -52,7 +52,9 @@ class Inject {
         registerDependencyIfNotRegistered(
             dependency: PeopleLocalSource.self,
             onRegisterNeeded: { resolver in
-                PeopleLocalSource()
+                PeopleLocalSource(
+                    peopleDb: PeopleSqlLiteDatabase.shared
+                )
             }
         )
         return dependencyContainer.resolve(PeopleLocalSource.self)!
