@@ -11,7 +11,9 @@ import SQLite
 protocol PeopleDatabase {
     func insertUserEntity(user: UserEntity)
     func insertUserEntity(user: UserEntity...)
-    func getUserWith(id : String) ->  UserEntity
+    func insertUserEntities(users:[UserEntity])
+    func getUserWith(id : String) ->  UserEntity?
+    func getAllUsers() -> [UserEntity]
 }
 
 class PeopleSqlLiteDatabase : PeopleDatabase {
@@ -34,7 +36,7 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
                 _database = try Connection(.inMemory)
             }
        } catch {
-
+           print("Could not connect the database")
        }
     }
 
@@ -45,12 +47,14 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
     
     private let userTable = Table("users")
     private let id = Expression<String>("id")
-    private let name = Expression<String>("name")
-    private let userName = Expression<String?>("user_name")
+    private let firstName = Expression<String>("f_name")
+    private let lastName = Expression<String>("l_name")
     private let email = Expression<String>("email")
     private let birthdate = Expression<String>("dob")
     private let phone = Expression<String>("phone")
     private let profilePhoto = Expression<String>("profile_photo")
+    private let userLatitude = Expression<Double>("u_lat")
+    private let userLongtitude = Expression<Double>("u_lng")
         
     private let addreess = Table("address")
     private let latitude = Expression<Double>("lat")
@@ -66,16 +70,16 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
                 try database?.run(
                     userTable.create(ifNotExists: true, block: { tableBuilder in
                         tableBuilder.column(id,primaryKey: true)
-                        tableBuilder.column(name)
-                        tableBuilder.column(userName)
+                        tableBuilder.column(firstName)
+                        tableBuilder.column(lastName)
                         tableBuilder.column(email)
                         tableBuilder.column(birthdate)
                         tableBuilder.column(phone)
                         tableBuilder.column(profilePhoto)
-                        tableBuilder.column(latitude)
-                        tableBuilder.column(longtitude)
-                        tableBuilder.foreignKey(latitude, references: addreess, latitude, delete: .setNull)
-                        tableBuilder.foreignKey(longtitude, references: addreess, longtitude, delete: .setNull)
+                        tableBuilder.column(userLatitude)
+                        tableBuilder.column(userLongtitude)
+                        tableBuilder.foreignKey(userLatitude, references: addreess, latitude, delete: .setNull)
+                        tableBuilder.foreignKey(userLongtitude, references: addreess, longtitude, delete: .setNull)
                     })
                 )
                 
@@ -91,26 +95,162 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
                 )
             }
         } catch {
-            
+            print("prepare error")
         }
     }
 
     func insertUserEntity(user: UserEntity) {
         
+        
+        let addressInsert = addreess.insert(
+            or: .replace,
+            [
+                self.latitude <- Double(user.latitude) ?? 0.0 ,
+                self.longtitude <- Double(user.longitude) ?? 0.0,
+                self.city <- user.city,
+                self.street <- user.street,
+                self.state <- user.state
+            ]
+        )
+        
+        let query = userTable.insert(
+            [
+                self.id <- user.id,
+                firstName <- user.firstName,
+                lastName <- user.lastName,
+                email <- user.email,
+                birthdate <- user.birthdate,
+                phone <- user.phone,
+                profilePhoto <- user.profilePhoto,
+                self.userLatitude <- Double(user.latitude) ?? 0.0 ,
+                self.userLongtitude <- Double(user.longitude) ?? 0.0,
+            ]
+        )
+        
+        
+        do {
+            let xx =  try database?.run(addressInsert)
+            let x = try database?.run(query)
+            print("x : \(String(describing: x))")
+        } catch let error  {
+            print("insertUserEntity error : \(error.localizedDescription)")
+        }
     }
 
     func insertUserEntity(user: UserEntity...) {
-        
+        user.forEach { userEntity in
+            insertUserEntity(user: userEntity)
+        }
+    }
+    
+    func insertUserEntities(users: [UserEntity]) {
+        users.forEach { userEntity in
+            insertUserEntity(user: userEntity)
+        }
     }
 
-    func getUserWith(id: String) -> UserEntity{
-        
-        try database?.run(
-            userTable.select()
-                .where(id.like(id)
-        )
-        
-        return UserEntity()
-    }
+    func getUserWith(id: String) -> UserEntity?{
+    
+        let joinnedQuery = userTable.join(addreess, on: (userTable[userLatitude] == addreess[latitude]) && userTable[userLongtitude] == addreess[longtitude] )
+            .select(
+                [
+                  self.id,
+                  firstName,
+                  lastName,
+                  email,
+                  birthdate,
+                  phone,
+                  profilePhoto,
+                  latitude,
+                  longtitude,
+                  state,
+                  city,
+                  street
+                ]
+            ).filter(
+                self.id == id
+            )
+
+        do {
+            let result =  try database?.prepare(joinnedQuery)
+            let user = try  result?.first(where: { row in
+                try row.get(self.id) == id
+            })
             
+            
+            return UserEntity(
+                id: try user?.get(self.id) ?? "",
+                firstName: try user?.get(firstName) ?? "",
+                lastName: try user?.get(lastName) ?? "",
+                email: try  user?.get(email) ?? "",
+                birthdate: try user?.get(birthdate) ?? "",
+                phone: try user?.get(phone) ?? "",
+                profilePhoto: try  user?.get(profilePhoto) ?? "",
+                latitude: try String(user?.get(latitude) ?? 0.0 ) ,
+                longitude: try String(user?.get(longtitude) ?? 0.0 ) ,
+                state: try user?.get(state) ?? "",
+                street: try user?.get(street) ?? "",
+                city: try user?.get(city) ?? ""
+                
+            )
+            
+            
+        
+        } catch {
+            return nil 
+        }
+    }
+    
+    func getAllUsers() -> [UserEntity] {
+        
+        let joinnedQuery = userTable.join(addreess, on: (userTable[userLatitude] == addreess[latitude]) && userTable[userLongtitude] == addreess[longtitude] )
+            .select(
+                [
+                  self.id,
+                  firstName,
+                  lastName,
+                  email,
+                  birthdate,
+                  phone,
+                  profilePhoto,
+                  latitude,
+                  longtitude,
+                  state,
+                  city,
+                  street
+                ]
+            )
+
+        
+        
+        var userEntities : [UserEntity] = []
+        do {
+            let result =  try database?.prepare(joinnedQuery)
+            
+            try result?.forEach({ user  in
+                userEntities.append(
+                    UserEntity(
+                        id: try user.get(self.id),
+                        firstName: try user.get(firstName),
+                        lastName: try user.get(lastName),
+                        email: try  user.get(email),
+                        birthdate: try user.get(birthdate),
+                        phone: try user.get(phone),
+                        profilePhoto: try  user.get(profilePhoto) ,
+                        latitude: try String(user.get(latitude) ) ,
+                        longitude: try String(user.get(longtitude) ) ,
+                        state: try user.get(state) ,
+                        street: try user.get(street) ,
+                        city: try user.get(city)
+                    )
+                )
+            })
+        } catch {
+            print("getAllUsers error")
+        }
+        
+        
+        return userEntities
+    }
+    
 }

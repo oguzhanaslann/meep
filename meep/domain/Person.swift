@@ -9,7 +9,14 @@ import Foundation
 
 struct Person {
     let id: String
-    let fullName: String
+    let firstName: String
+    let lastName : String
     let age: String
     let image: String
+    
+    var fullName: String {
+        get {
+            return "\(firstName) \(lastName)"
+        }
+    }
 }

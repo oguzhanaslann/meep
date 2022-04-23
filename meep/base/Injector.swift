@@ -46,9 +46,7 @@ class Inject {
     }
     
     func injectPeopleLocalAPI() -> PeopleLocalAPI {
-        
-
-        
+                
         registerDependencyIfNotRegistered(
             dependency: PeopleLocalSource.self,
             onRegisterNeeded: { resolver in

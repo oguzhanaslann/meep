@@ -22,31 +22,44 @@ class PeopleRepository : PeopleListInformationProvider {
         onLoading : @escaping () -> Void,
         onComplation : @escaping  (AnyResult<[Person]>) -> Void
     ) {
-       
         peopleNetworkAPI.fetchPeopleList(onLoading: onLoading, onComplation: { result in
-          
             let peopleResult:  AnyResult<[Person]> =  result.map { apiResponse in
-                var people : [Person] = []
-              
+               
+                var userEntities : [UserEntity] = []
                 
                 if  let apiResponse = result.value {
+                   
                     apiResponse.results?.forEach({ result  in
-                        people.append(
-                            Person(
-                                id: result.id?.name ?? "",
-                                fullName: ("\(result.name?.first ?? "") \(result.name?.last ?? "")"),
-                                age: String(result.dob?.age ?? 0),
-                                image: String(result.picture?.thumbnail ?? "")
+                        
+                        userEntities.append(
+                            UserEntity(
+                                id: result.id?.value ?? "",
+                                firstName : result.name?.first  ?? "",
+                                lastName: result.name?.last ?? "",
+                                email: result.email ?? "",
+                                birthdate: result.dob?.date ?? "",
+                                phone: result.phone ?? "",
+                                profilePhoto: result.picture?.thumbnail ?? "",
+                                latitude: result.location?.coordinates?.latitude ?? "",
+                                longitude: result.location?.coordinates?.longitude ?? "",
+                                state: result.location?.state ?? "",
+                                street: result.location?.street?.name ?? "",
+                                city: result.location?.city ?? ""
                             )
                         )
                     })
-                   
                 }
+                
+                self.peopleLocalAPI.saveUsers(userEntities: userEntities)
+              
+                let people = self.peopleLocalAPI.getAllUsers().map { userEntity  in
+                    userEntity.toPerson()
+                }
+                
                 return AnyResult.success(people)
             }
             
             onComplation(peopleResult)
         })
-       
     }
 }
