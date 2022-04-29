@@ -25,7 +25,25 @@ struct UserEntity {
 
 extension UserEntity {
     func toPerson() -> Person {
-        return Person(id: self.id, firstName: self.firstName, lastName: self.lastName, age: self.birthdate, image: self.profilePhoto)
+        return Person(id: self.id, firstName: self.firstName, lastName: self.lastName, age: String(age()) , image: self.profilePhoto)
+    }
+    
+    
+    private func age() -> Int {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = DOB_FORMAT
+        let theDate = dateFormatter.date(from: self.birthdate)!
+        
+        dateFormatter.dateFormat = "yyyy"
+        let year = dateFormatter.string(from: theDate)
+        let yearAsInt = Int(year) ?? 0
+        
+        let currentDate = Date()
+        let currentYear = dateFormatter.string(from: currentDate)
+        let currentYearsInt = Int(currentYear) ?? 0
+        
+        let age = currentYearsInt - yearAsInt
+        return age
     }
     
     func fullName() -> String {

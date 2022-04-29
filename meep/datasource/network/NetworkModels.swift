@@ -98,6 +98,8 @@ struct ID: Codable {
 //     }
 //   }
 
+let DOB_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+
 // MARK: - Location
 struct Location: Codable {
     let street : Street?
