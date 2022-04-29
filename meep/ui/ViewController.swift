@@ -81,7 +81,7 @@ extension ViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NSLog("clicked %d", indexPath.row)
         let personId = personList[indexPath.row].id
-        navigationController?.pushViewController(PersonDetailViewController(), animated: true)
+        navigationController?.pushViewController(PersonDetailViewController(personId: personId), animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

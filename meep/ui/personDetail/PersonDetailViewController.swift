@@ -9,9 +9,30 @@ import Foundation
 import UIKit
 import SnapKit
 import MapKit
+import Combine
 
 class PersonDetailViewController : UIViewController {
-   
+  
+    
+    
+    let personDetailViewModel = Inject.shared.injectPersonDetailViewModel()
+    
+    init(){
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    init(personId: String){
+        super.init(nibName: nil, bundle: nil)
+        print("persondid : \(personId)")
+        personDetailViewModel.setPersonId(personId: personId)
+    }
+    
+    required init(coder : NSCoder){
+        fatalError()
+    }
+    
+    var observer : AnyCancellable? = nil
+    
     private let personProfilePhoto: UIImageView = meepImage(
         name: "sample",
         clipToBounds: true,
@@ -52,7 +73,7 @@ class PersonDetailViewController : UIViewController {
         map.setCenter(CLLocationCoordinate2DMake(20.9267, -7.9310), animated: true )
         map.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: 100.0), animated: false)
         map.isZoomEnabled = false
-        map.isUserInteractionEnabled  = false
+        map.isUserInteractionEnabled  = true
         return map
     }()
     
@@ -90,8 +111,6 @@ class PersonDetailViewController : UIViewController {
             make.height.equalTo(dimensions)
             personProfilePhoto.layer.cornerRadius = CGFloat((dimensions / 2))
         }
-        
-
         
         profileBackgroundView.snp.makeConstraints { make in
             make.top.equalTo(self.view.snp.top).offset(36)
@@ -143,6 +162,25 @@ class PersonDetailViewController : UIViewController {
             make.top.equalTo(phoneText.snp.bottom).offset(8)
             make.left.equalTo(personContactInfoContainer.snp.left).offset(16)
         }
+        
+        
+        observer = personDetailViewModel.publisher.sink { personDetail in
+            self.personProfilePhoto.load(url: personDetail.profilePhoto)
+            self.personUserName.text = personDetail.userName
+            self.personName.text = personDetail.fullName
+            self.emailText.text = "Email : \(personDetail.contactInformation.email)"
+            self.phoneText.text = "Phone : \(personDetail.contactInformation.phone)"
+            self.addressText.text = "Address: \(personDetail.contactInformation.address)"
+            self.personLocationMapView.setCenter(
+                CLLocationCoordinate2D(
+                    latitude: personDetail.location.latitude,
+                    longitude: personDetail.location.longtitude
+                ),
+                animated: true
+            )
+        }
+      
+        personDetailViewModel.getPersonDetail()
         
     
     }

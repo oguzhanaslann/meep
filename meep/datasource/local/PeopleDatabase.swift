@@ -102,7 +102,7 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
     func insertUserEntity(user: UserEntity) {
         
         
-        let addressInsert = addreess.insert(
+        let addressInsertQuery = addreess.insert(
             or: .replace,
             [
                 self.latitude <- Double(user.latitude) ?? 0.0 ,
@@ -113,7 +113,8 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
             ]
         )
         
-        let query = userTable.insert(
+        let userTableInsertQuery = userTable.insert(
+            or: .replace,
             [
                 self.id <- user.id,
                 firstName <- user.firstName,
@@ -129,9 +130,12 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
         
         
         do {
-            let xx =  try database?.run(addressInsert)
-            let x = try database?.run(query)
-            print("x : \(String(describing: x))")
+            let addressInsert =  try database?.run(addressInsertQuery)
+            let userInsert = try database?.run(userTableInsertQuery)
+            
+            print("address inserted : \(String(describing: addressInsert))")
+            print("user inserted : \(String(describing: userInsert))")
+            
         } catch let error  {
             print("insertUserEntity error : \(error.localizedDescription)")
         }
@@ -151,8 +155,10 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
 
     func getUserWith(id: String) -> UserEntity?{
     
-        let joinnedQuery = userTable.join(addreess, on: (userTable[userLatitude] == addreess[latitude]) && userTable[userLongtitude] == addreess[longtitude] )
-            .select(
+        let joinnedQuery = userTable.join(
+            addreess,
+            on: (userTable[userLatitude] == addreess[latitude]) && userTable[userLongtitude] == addreess[longtitude]
+        ).select(
                 [
                   self.id,
                   firstName,
@@ -178,25 +184,30 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
             })
             
             
-            return UserEntity(
-                id: try user?.get(self.id) ?? "",
-                firstName: try user?.get(firstName) ?? "",
-                lastName: try user?.get(lastName) ?? "",
-                email: try  user?.get(email) ?? "",
-                birthdate: try user?.get(birthdate) ?? "",
-                phone: try user?.get(phone) ?? "",
-                profilePhoto: try  user?.get(profilePhoto) ?? "",
-                latitude: try String(user?.get(latitude) ?? 0.0 ) ,
-                longitude: try String(user?.get(longtitude) ?? 0.0 ) ,
-                state: try user?.get(state) ?? "",
-                street: try user?.get(street) ?? "",
-                city: try user?.get(city) ?? ""
+            
+            if user != nil {
                 
-            )
-            
-            
-        
-        } catch {
+                return UserEntity(
+                    id: try user?.get(self.id) ?? "",
+                    firstName: try user?.get(firstName) ?? "",
+                    lastName: try user?.get(lastName) ?? "",
+                    email: try  user?.get(email) ?? "",
+                    birthdate: try user?.get(birthdate) ?? "",
+                    phone: try user?.get(phone) ?? "",
+                    profilePhoto: try  user?.get(profilePhoto) ?? "",
+                    latitude: try String(user?.get(latitude) ?? 0.0 ) ,
+                    longitude: try String(user?.get(longtitude) ?? 0.0 ) ,
+                    state: try user?.get(state) ?? "",
+                    street: try user?.get(street) ?? "",
+                    city: try user?.get(city) ?? ""
+                )
+                
+            } else {
+                return nil
+            }
+
+        } catch let error {
+            print("getUserWith: error \(error.localizedDescription)")
             return nil 
         }
     }

@@ -29,4 +29,7 @@ class PeopleLocalSource : PeopleLocalAPI {
         return peopleDB.getAllUsers()
     }
     
+    func getUser(id: String) -> UserEntity? {
+        return peopleDB.getUserWith(id: id)
+    }
 }

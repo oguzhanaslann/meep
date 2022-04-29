@@ -31,6 +31,9 @@
 		D45C0DA427DC03BF00B75D4A /* meepUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */; };
 		D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45C0DB227DC157700B75D4A /* Extentions.swift */; };
 		D45C0DB627DC190900B75D4A /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D45C0DB527DC190900B75D4A /* SnapKit */; };
+		D46D502C281BB1CC004C71DC /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46D502B281BB1CC004C71DC /* PersonDetailViewModel.swift */; };
+		D46D502E281BB494004C71DC /* PersonDetailInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46D502D281BB494004C71DC /* PersonDetailInfoProvider.swift */; };
+		D46D5030281BB4EB004C71DC /* PersonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46D502F281BB4EB004C71DC /* PersonDetail.swift */; };
 		D489DE022802B8AA006FA729 /* PeopleDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489DE012802B8AA006FA729 /* PeopleDatabase.swift */; };
 		D489DE042802BF0E006FA729 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D489DE032802BF0E006FA729 /* UserEntity.swift */; };
 		D48FE79127F7B51C00CCFBF1 /* PeopleNetworlAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE79027F7B51C00CCFBF1 /* PeopleNetworlAPI.swift */; };
@@ -85,6 +88,9 @@
 		D45C0DA127DC03BF00B75D4A /* meepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITests.swift; sourceTree = "<group>"; };
 		D45C0DA327DC03BF00B75D4A /* meepUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meepUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D45C0DB227DC157700B75D4A /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		D46D502B281BB1CC004C71DC /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
+		D46D502D281BB494004C71DC /* PersonDetailInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailInfoProvider.swift; sourceTree = "<group>"; };
+		D46D502F281BB4EB004C71DC /* PersonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetail.swift; sourceTree = "<group>"; };
 		D489DE012802B8AA006FA729 /* PeopleDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleDatabase.swift; sourceTree = "<group>"; };
 		D489DE032802BF0E006FA729 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		D48FE79027F7B51C00CCFBF1 /* PeopleNetworlAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleNetworlAPI.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				D4583BCC27E6EE14004A2416 /* Person.swift */,
+				D46D502F281BB4EB004C71DC /* PersonDetail.swift */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				D4583BDD27E6F3DE004A2416 /* PersonDetailViewController.swift */,
+				D46D502B281BB1CC004C71DC /* PersonDetailViewModel.swift */,
 			);
 			path = personDetail;
 			sourceTree = "<group>";
@@ -285,6 +293,7 @@
 			children = (
 				D40D0E0A27EE4564005F10CD /* PeopleListInformationProvider.swift */,
 				D40D0E0C27EE45BE005F10CD /* PeopleRepository.swift */,
+				D46D502D281BB494004C71DC /* PersonDetailInfoProvider.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -435,10 +444,13 @@
 			files = (
 				D426BFAB27F896D900A11E9A /* NetworkModels.swift in Sources */,
 				D48FE79127F7B51C00CCFBF1 /* PeopleNetworlAPI.swift in Sources */,
+				D46D502E281BB494004C71DC /* PersonDetailInfoProvider.swift in Sources */,
 				D48FE79727F7B5C500CCFBF1 /* PeopleLocalAPI.swift in Sources */,
 				D426BFA927F8900200A11E9A /* Result.swift in Sources */,
 				D489DE022802B8AA006FA729 /* PeopleDatabase.swift in Sources */,
+				D46D502C281BB1CC004C71DC /* PersonDetailViewModel.swift in Sources */,
 				D45C0DB327DC157700B75D4A /* Extentions.swift in Sources */,
+				D46D5030281BB4EB004C71DC /* PersonDetail.swift in Sources */,
 				D440D0FF27E445A00045DEF2 /* TextComponents.swift in Sources */,
 				D45C0D8527DC03BB00B75D4A /* ViewController.swift in Sources */,
 				D4583BDE27E6F3DE004A2416 /* PersonDetailViewController.swift in Sources */,

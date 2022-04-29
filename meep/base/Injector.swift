@@ -67,4 +67,30 @@ class Inject {
         )
         return dependencyContainer.resolve(RandomUserClient.self)!
     }
+    
+    func injectPersonDetailViewModel() -> PersonDetailViewModel {
+        registerDependencyIfNotRegistered(
+            dependency: PersonDetailViewModel.self,
+            onRegisterNeeded: { resolver in
+                PersonDetailViewModel(
+                    personDetailInfoProvider: self.injectPersonInfoProvider()
+                )
+            }
+        )
+        return dependencyContainer.resolve(PersonDetailViewModel.self)!
+    }
+    
+    
+    func injectPersonInfoProvider() -> PersonDetailInfoProvider {
+        registerDependencyIfNotRegistered(
+            dependency: PeopleRepository.self,
+            onRegisterNeeded: { resolver in
+                PeopleRepository(
+                    peopleLocalAPI: self.injectPeopleLocalAPI(),
+                    peopleNetworkAPI: self.injectPeopleNetworkAPI()
+                )
+            }
+        )
+        return dependencyContainer.resolve(PeopleRepository.self)!
+    }
 }

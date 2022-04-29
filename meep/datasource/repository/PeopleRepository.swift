@@ -7,7 +7,8 @@
 
 import Foundation
 
-class PeopleRepository : PeopleListInformationProvider {
+class PeopleRepository : PeopleListInformationProvider,PersonDetailInfoProvider {
+
     
     private let peopleLocalAPI : PeopleLocalAPI
     private let peopleNetworkAPI : PeopleNetworkAPI
@@ -39,7 +40,7 @@ class PeopleRepository : PeopleListInformationProvider {
                                 email: result.email ?? "",
                                 birthdate: result.dob?.date ?? "",
                                 phone: result.phone ?? "",
-                                profilePhoto: result.picture?.thumbnail ?? "",
+                                profilePhoto: result.picture?.large ?? "",
                                 latitude: result.location?.coordinates?.latitude ?? "",
                                 longitude: result.location?.coordinates?.longitude ?? "",
                                 state: result.location?.state ?? "",
@@ -62,4 +63,37 @@ class PeopleRepository : PeopleListInformationProvider {
             onComplation(peopleResult)
         })
     }
+    
+    func getPersonDetail(person : String , onLoading: @escaping () -> Void, onComplation: @escaping (AnyResult<PersonDetail>) -> Void) {
+        onLoading()
+        var result : AnyResult<PersonDetail> = AnyResult.failure(error:UnknownError())
+        let userEntity = peopleLocalAPI.getUser(id: person)
+        if userEntity != nil {
+            let personDetail = PersonDetail(
+                id: userEntity?.id ?? "",
+                fullName: userEntity?.fullName() ?? "",
+                userName: userEntity?.fullName() ?? "",
+                profilePhoto: userEntity?.profilePhoto ?? "",
+                contactInformation: ContactInformation(
+                    email: userEntity?.email ?? "" ,
+                    phone: userEntity?.phone ?? "",
+                    address: userEntity?.address() ?? ""
+                ),
+                location: UserLocation(
+                    latitude: Double(userEntity?.latitude ?? "0.0") ?? 0.0  ,
+                    longtitude: Double(userEntity?.longitude ?? "0.0") ?? 0.0
+                )
+            )
+            
+            result = AnyResult.success(personDetail)
+        }
+        
+        onComplation(result)
+    }
+    
+    
+}
+
+class UnknownError : Error {
+    
 }

@@ -27,4 +27,12 @@ extension UserEntity {
     func toPerson() -> Person {
         return Person(id: self.id, firstName: self.firstName, lastName: self.lastName, age: self.birthdate, image: self.profilePhoto)
     }
+    
+    func fullName() -> String {
+        return "\(self.firstName) \(self.lastName)"
+    }
+    
+    func address() -> String {
+        return "\(self.state) \(self.street) \(self.city)"
+    }
 }
