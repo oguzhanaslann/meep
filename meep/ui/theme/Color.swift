@@ -23,9 +23,6 @@ enum Color {
     case onBackground
 }
 
-
-
-
 func getUIColor(color : Color) -> UIColor {
     switch color {
         case .primary:

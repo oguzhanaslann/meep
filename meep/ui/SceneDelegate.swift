@@ -8,10 +8,13 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+   
+    let PEOPLE_PAGE_INDEX = 0
+    let SEARCH_PAGE_INDEX = 1
+    let PROFILE_PAGE_INDEX = 2
+   
     var window: UIWindow?
-
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -20,12 +23,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds )
         window?.windowScene = windowScene
-//        window?.rootViewController = ViewController()
-        let rooViewController = ViewController()
-//        let rooViewController = PersonDetailViewController()
-        let navController = UINavigationController(rootViewController: rooViewController)
+                
+        let rootViewController = UITabBarController()
+        initTabBarController(tabbarController: rootViewController)
+        
+        let navController = UINavigationController(rootViewController: rootViewController)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
+    }
+    
+    private func initTabBarController(tabbarController : UITabBarController) {
+        let personListVC = PersonListViewController()
+        let personSearchVC = PersonSearchViewController()
+        let profileVC = ProfileViewController()
+        tabbarController.viewControllers = [personListVC,personSearchVC,profileVC]
+    
+        tabbarController.tabBar.items?[PEOPLE_PAGE_INDEX].title = "People"
+        tabbarController.tabBar.items?[PEOPLE_PAGE_INDEX].image = UIImage(systemName: "house")
+      
+        tabbarController.tabBar.items?[SEARCH_PAGE_INDEX].title = "Search"
+        tabbarController.tabBar.items?[SEARCH_PAGE_INDEX].image = UIImage(systemName: "magnifyingglass")
+    
+        tabbarController.tabBar.items?[PROFILE_PAGE_INDEX].title = "Profile"
+        tabbarController.tabBar.items?[PROFILE_PAGE_INDEX].image = UIImage(systemName: "person.fill")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -58,4 +78,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-
