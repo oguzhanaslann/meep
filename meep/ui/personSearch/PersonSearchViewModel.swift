@@ -30,4 +30,15 @@ class PersonSearchViewModel : ViewModel {
         }
 
     }
+    
+    func doInitialSearch() {
+        searchResultProvider.searchAnyPerson {
+            
+        } onComplation: { result in
+            if let list = result.value {
+                self.subject.send(list)
+            }
+        }
+
+    }
 }

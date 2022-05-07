@@ -9,6 +9,8 @@ import Foundation
 
 class PeopleRepository : PeopleListInformationProvider,PersonDetailInfoProvider,SearchResultProvider {
 
+    
+
     private let peopleLocalAPI : PeopleLocalAPI
     private let peopleNetworkAPI : PeopleNetworkAPI
     
@@ -100,6 +102,13 @@ class PeopleRepository : PeopleListInformationProvider,PersonDetailInfoProvider,
         onComplation(AnyResult.success(people))
     }
     
+    
+    func searchAnyPerson(onLoading: @escaping () -> Void, onComplation: @escaping (AnyResult<[Person]>) -> Void) {
+        let people = self.peopleLocalAPI.getAllUsers().map { userEntity  in
+            userEntity.toPerson()
+        }
+        onComplation(AnyResult.success(people))
+    }
 }
 
 class UnknownError : Error {

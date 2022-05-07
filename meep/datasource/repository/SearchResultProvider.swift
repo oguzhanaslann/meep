@@ -9,4 +9,5 @@ import Foundation
 
 protocol SearchResultProvider {
     func searchPersonWithName(name : String,onLoading : @escaping () -> Void,onComplation : @escaping  (AnyResult<[Person]>) -> Void)
+    func searchAnyPerson(onLoading : @escaping () -> Void,onComplation : @escaping  (AnyResult<[Person]>) -> Void)
 }

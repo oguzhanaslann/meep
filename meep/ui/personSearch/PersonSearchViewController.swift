@@ -14,7 +14,11 @@ class PersonSearchViewController : UIViewController {
     
     let searchViewModel : PersonSearchViewModel = Inject.shared.injectPersonSearchViewModel()
     
-    let tableView: UITableView = UITableView()
+    let tableView: UITableView = {
+        let table = UITableView()
+        table.backgroundColor = backgroundColor
+        return table
+    }()
     private var personList : [Person] = []
     
     var observer : AnyCancellable? = nil
@@ -79,17 +83,6 @@ class PersonSearchViewController : UIViewController {
             make.right.equalTo(self.searchContainer.snp.right).offset(24)
         }
         
-        
-        tableView.snp.makeConstraints({ make in
-            make.top.equalTo(self.searchContainer.snp.bottom)
-            make.left.equalTo(self.view.snp.left)
-            make.right.equalTo(self.view.snp.right)
-            tableView.backgroundColor = errorColor
-            make.bottom.lessThanOrEqualToSuperview()
-            make.height.greaterThanOrEqualTo(500)
-        })
-        
-      
         emailTextField.addTarget(
                 self,
                 action: #selector(onSearch(_:)),
@@ -108,6 +101,15 @@ class PersonSearchViewController : UIViewController {
             self.personList = people
         })
         
+        tableView.snp.makeConstraints({ make in
+            make.top.equalTo(self.searchContainer.snp.bottom)
+            make.left.equalTo(self.view.snp.left)
+            make.right.equalTo(self.view.snp.right)
+            make.bottom.lessThanOrEqualToSuperview()
+            make.height.greaterThanOrEqualTo(UIScreen.main.bounds.height - 192 - 72 )
+        })
+        
+        searchViewModel.doInitialSearch()
     }
     
     @objc func onSearch(_ sender : UITextField) {
@@ -118,8 +120,6 @@ class PersonSearchViewController : UIViewController {
     }
     
 }
-
-
 
 extension PersonSearchViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -155,6 +155,6 @@ extension PersonSearchViewController : UITableViewDataSource {
     
 }
 
-extension PersonSearchViewController: UITableViewDelegate{
+extension PersonSearchViewController: UITableViewDelegate {
     
 }
