@@ -7,9 +7,8 @@
 
 import Foundation
 
-class PeopleRepository : PeopleListInformationProvider,PersonDetailInfoProvider {
+class PeopleRepository : PeopleListInformationProvider,PersonDetailInfoProvider,SearchResultProvider {
 
-    
     private let peopleLocalAPI : PeopleLocalAPI
     private let peopleNetworkAPI : PeopleNetworkAPI
     
@@ -91,6 +90,15 @@ class PeopleRepository : PeopleListInformationProvider,PersonDetailInfoProvider 
         onComplation(result)
     }
     
+    func searchPersonWithName(name: String, onLoading: @escaping () -> Void, onComplation: @escaping (AnyResult<[Person]>) -> Void) {
+        let userList =  self.peopleLocalAPI.getUserWithSimilarName(with : name)
+        
+        let people = userList.map { entity in
+            entity.toPerson()
+        }
+        
+        onComplation(AnyResult.success(people))
+    }
     
 }
 

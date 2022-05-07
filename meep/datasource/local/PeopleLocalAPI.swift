@@ -12,4 +12,5 @@ protocol PeopleLocalAPI {
     func saveUsers(userEntities: [UserEntity])
     func getAllUsers() -> [UserEntity]
     func getUser(id : String) -> UserEntity?
+    func getUserWithSimilarName(with name : String) -> [UserEntity]
 }

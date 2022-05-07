@@ -33,6 +33,10 @@ class Inject {
     }
     
     func injectPersonInfoProvider() -> PeopleListInformationProvider {
+       return injectPeopleRepository()
+    }
+    
+    func injectPeopleRepository() -> PeopleRepository {
         registerDependencyIfNotRegistered(
             dependency: PeopleRepository.self,
             onRegisterNeeded: { resolver in
@@ -46,7 +50,10 @@ class Inject {
     }
     
     func injectPeopleLocalAPI() -> PeopleLocalAPI {
-                
+        return injectPeopleLocalSource()
+    }
+    
+    func injectPeopleLocalSource() -> PeopleLocalSource {
         registerDependencyIfNotRegistered(
             dependency: PeopleLocalSource.self,
             onRegisterNeeded: { resolver in
@@ -92,5 +99,22 @@ class Inject {
             }
         )
         return dependencyContainer.resolve(PeopleRepository.self)!
+    }
+    
+    
+    func injectPersonSearchViewModel() -> PersonSearchViewModel {
+        registerDependencyIfNotRegistered(
+            dependency: PersonSearchViewModel.self,
+            onRegisterNeeded: { resolver in
+                PersonSearchViewModel(
+                    searchResultProvider: self.injectSearchResultProvider()
+                )
+            }
+        )
+        return dependencyContainer.resolve(PersonSearchViewModel.self)!
+    }
+    
+    func injectSearchResultProvider() -> SearchResultProvider {
+        return injectPeopleRepository()
     }
 }

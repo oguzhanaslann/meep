@@ -14,6 +14,8 @@ protocol PeopleDatabase {
     func insertUserEntities(users:[UserEntity])
     func getUserWith(id : String) ->  UserEntity?
     func getAllUsers() -> [UserEntity]
+    func getUsersWithNameLike(_ name : String) -> [UserEntity]
+    
 }
 
 class PeopleSqlLiteDatabase : PeopleDatabase {
@@ -263,5 +265,58 @@ class PeopleSqlLiteDatabase : PeopleDatabase {
         
         return userEntities
     }
+    
+    func getUsersWithNameLike(_ name: String) -> [UserEntity] {
+        let joinnedQuery = userTable.join(addreess, on: (userTable[userLatitude] == addreess[latitude]) && userTable[userLongtitude] == addreess[longtitude] )
+            .select(
+                [
+                  self.id,
+                  firstName,
+                  lastName,
+                  email,
+                  birthdate,
+                  phone,
+                  profilePhoto,
+                  latitude,
+                  longtitude,
+                  state,
+                  city,
+                  street
+                ]
+            )
+            .filter(
+                self.firstName.like("%\(name)%") || self.lastName.like("%\(name)%")
+            )
+        
+        var userEntities : [UserEntity] = []
+        
+        do {
+            let result = try database?.prepare(joinnedQuery)
+            try result?.forEach({ user  in
+                userEntities.append(
+                    UserEntity(
+                        id: try user.get(self.id),
+                        firstName: try user.get(firstName),
+                        lastName: try user.get(lastName),
+                        email: try  user.get(email),
+                        birthdate: try user.get(birthdate),
+                        phone: try user.get(phone),
+                        profilePhoto: try  user.get(profilePhoto) ,
+                        latitude: try String(user.get(latitude) ) ,
+                        longitude: try String(user.get(longtitude) ) ,
+                        state: try user.get(state) ,
+                        street: try user.get(street) ,
+                        city: try user.get(city)
+                    )
+                )
+            })
+            
+        } catch let error {
+            print("Error while searching users with name: \(name) , problem -> \(error.localizedDescription)")
+        }
+        
+        return userEntities
+    }
+    
     
 }

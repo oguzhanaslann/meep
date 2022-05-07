@@ -15,3 +15,9 @@ extension UIImageView {
         self.kf.setImage(with: url)
     }
 }
+
+extension UIStackView {
+    func orientation(_ orientation : NSLayoutConstraint.Axis) {
+        self.axis = orientation
+    }
+}

@@ -32,4 +32,9 @@ class PeopleLocalSource : PeopleLocalAPI {
     func getUser(id: String) -> UserEntity? {
         return peopleDB.getUserWith(id: id)
     }
+    
+    func getUserWithSimilarName(with name: String) -> [UserEntity] {
+        return peopleDB.getUsersWithNameLike(name)
+    }
+   
 }

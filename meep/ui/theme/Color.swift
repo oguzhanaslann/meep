@@ -40,7 +40,7 @@ func getUIColor(color : Color) -> UIColor {
         case .onSecondary:
             return UIColor.init(named: "colorOnSecondary")!
         case .onSurface:
-            return UIColor.init(named: "colorSurface")!
+            return UIColor.init(named: "colorOnSurface")!
         case .error:
             return UIColor.init(named: "colorError")!
         case .onError:
