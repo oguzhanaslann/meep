@@ -20,7 +20,7 @@ class PersonListCell : UITableViewCell {
         borderWidth: 1
     )
 
-    private let personName : UILabel =  meepSubHeader1(text: "Oğuzhan Aslan")
+    private let personName : UILabel =  meepSubHeader2(text: "Oğuzhan Aslan")
 
     private  let ageIcon : UIImageView = meepSysImage(systemName: "calendar.circle")
     
@@ -70,6 +70,7 @@ class PersonListCell : UITableViewCell {
             
             make.trailing.equalTo(self.contentView.snp.trailing)
                 .inset(8)
+       
        
         }
         

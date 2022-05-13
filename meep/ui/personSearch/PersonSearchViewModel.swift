@@ -31,6 +31,8 @@ class PersonSearchViewModel : ViewModel {
 
     }
     
+    
+    
     func doInitialSearch() {
         searchResultProvider.searchAnyPerson {
             

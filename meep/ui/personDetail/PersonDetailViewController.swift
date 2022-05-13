@@ -13,8 +13,6 @@ import Combine
 
 class PersonDetailViewController : UIViewController {
   
-    
-    
     let personDetailViewModel = Inject.shared.injectPersonDetailViewModel()
     
     init(){
@@ -42,15 +40,19 @@ class PersonDetailViewController : UIViewController {
     
     private let personName : UILabel =  meepHeader1(text: "Oğuzhan Aslan")
     
-    private let personUserName : UILabel =  meepHeader2(text: "#xx_crazy_boi_64")
+    private let personUserName : UILabel =  meepSubHeader2(text: "#xx_crazy_boi_64")
     
-    private let contactsTitle : UILabel =  meepSubHeader1(text: "Contanct Information")
+    private let contactsTitle : UILabel =  meepSubHeader2(text: "Contanct Information")
     
     private let emailText : UILabel = meepBody1(text: "Email : Oaslan@example.com")
     
     private let phoneText : UILabel = meepBody1(text: "Phone : (315)-001-3973")
     
     private let addressText : UILabel = meepBody1(text: "Address : waterford, kilcoole, 9278 new road ")
+    
+    
+    private let navigateBackButton = meepSysImage(systemName: "arrow.left",tint: onPrimaryColor)
+    
     
     private let profileBackgroundView : UIStackView = {
         let stackView  = UIStackView()
@@ -113,10 +115,19 @@ class PersonDetailViewController : UIViewController {
         }
         
         profileBackgroundView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.snp.top).offset(36)
+            make.top.equalTo(self.view.snp.top)
             make.right.equalTo(self.view.snp.right)
             make.left.equalTo(self.view.snp.left)
             make.bottom.equalTo(personProfilePhoto.snp.centerY)
+        }
+        
+        
+        profileBackgroundView.addSubview(navigateBackButton)
+        
+        navigateBackButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(56)
+            make.left.equalToSuperview().offset(24)
+            make.height.width.equalTo(30)
         }
         
         scrollView.bringSubviewToFront(personProfilePhoto);
@@ -181,9 +192,27 @@ class PersonDetailViewController : UIViewController {
         }
       
         personDetailViewModel.getPersonDetail()
-        
-    
+      
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped(_:)))
+
+        navigateBackButton.isUserInteractionEnabled = true
+
+        navigateBackButton.addGestureRecognizer(tapGestureRecognizer)
+
     }
+    
+    
+    @objc func imageViewTapped(_ sender:AnyObject){
+        _ = navigationController?.popViewController(animated: true)
+        print("“imageview tapped”")
+
+    }
+    
+    //Action
+    func tapDetected() {
+        print("Single Tap on imageview")
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         scrollView.addSubview(personLocationMapView)
@@ -194,4 +223,6 @@ class PersonDetailViewController : UIViewController {
             make.height.greaterThanOrEqualTo(300)
         }
     }
+    
+
 }

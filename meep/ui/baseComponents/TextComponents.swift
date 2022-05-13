@@ -23,7 +23,7 @@ func meepHeader1(
 func meepHeader2(
     text : String,
     color : UIColor = .black,
-    font : UIFont  = UIFont.boldSystemFont(ofSize: 18)
+    font : UIFont  = UIFont.boldSystemFont(ofSize: 24)
 ) -> UILabel {
     let label = UILabel()
     label.text = text
@@ -35,6 +35,19 @@ func meepHeader2(
 func meepSubHeader1(
     text : String,
     color : UIColor = .black,
+    font : UIFont  = UIFont.boldSystemFont(ofSize: 18)
+) -> UILabel {
+    let label = UILabel()
+    label.text = text
+    label.textColor = color
+    label.font = font
+    return label
+}
+
+
+func meepSubHeader2(
+    text : String,
+    color : UIColor = .black,
     font : UIFont  = UIFont.boldSystemFont(ofSize: 16)
 ) -> UILabel {
     let label = UILabel()
@@ -43,6 +56,7 @@ func meepSubHeader1(
     label.font = font
     return label
 }
+
 
 func meepBody1(
     text : String,
@@ -85,7 +99,8 @@ func meepSysImage(
     systemName : String,
     clipToBounds : Bool? = nil,
     borderColor: CGColor? = nil,
-    borderWidth : CGFloat? = nil
+    borderWidth : CGFloat? = nil,
+    tint : UIColor? = nil
 )  -> UIImageView {
     let image = UIImage(systemName: systemName)
     let imageView = UIImageView(image: image)
@@ -100,6 +115,10 @@ func meepSysImage(
     
     if borderWidth !=  nil {
         imageView.layer.borderWidth = borderWidth!
+    }
+    
+    if tint != nil {
+        imageView.tintColor = tint!
     }
     
     return imageView

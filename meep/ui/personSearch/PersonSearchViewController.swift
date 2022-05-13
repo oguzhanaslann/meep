@@ -105,8 +105,7 @@ class PersonSearchViewController : UIViewController {
             make.top.equalTo(self.searchContainer.snp.bottom)
             make.left.equalTo(self.view.snp.left)
             make.right.equalTo(self.view.snp.right)
-            make.bottom.lessThanOrEqualToSuperview()
-            make.height.greaterThanOrEqualTo(UIScreen.main.bounds.height - 192 - 72 )
+            make.bottom.equalToSuperview()
         })
         
         searchViewModel.doInitialSearch()
@@ -118,6 +117,7 @@ class PersonSearchViewController : UIViewController {
         searchViewModel.onSearch(searchText)
         tableView.reloadData()
     }
+        
     
 }
 
