@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D40D0E0B27EE4564005F10CD /* PeopleListInformationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D0E0A27EE4564005F10CD /* PeopleListInformationProvider.swift */; };
 		D40D0E0D27EE45BE005F10CD /* PeopleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40D0E0C27EE45BE005F10CD /* PeopleRepository.swift */; };
+		D4222DEC282F05FD00F10672 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4222DEB282F05FD00F10672 /* FriendCell.swift */; };
 		D426BFA427F883A500A11E9A /* PeopleLocalSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426BFA327F883A500A11E9A /* PeopleLocalSource.swift */; };
 		D426BFA727F8848000A11E9A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D426BFA627F8848000A11E9A /* Alamofire */; };
 		D426BFA927F8900200A11E9A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D426BFA827F8900200A11E9A /* Result.swift */; };
@@ -70,6 +71,7 @@
 		D40D0E0A27EE4564005F10CD /* PeopleListInformationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListInformationProvider.swift; sourceTree = "<group>"; };
 		D40D0E0C27EE45BE005F10CD /* PeopleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleRepository.swift; sourceTree = "<group>"; };
 		D40D0E0E27EE5112005F10CD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D4222DEB282F05FD00F10672 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		D426BFA327F883A500A11E9A /* PeopleLocalSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleLocalSource.swift; sourceTree = "<group>"; };
 		D426BFA827F8900200A11E9A /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		D426BFAA27F896D900A11E9A /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				D491F136281EC6E100C325A9 /* ProfileViewController.swift */,
+				D4222DEB282F05FD00F10672 /* FriendCell.swift */,
 			);
 			path = profile;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				D48FE79127F7B51C00CCFBF1 /* PeopleNetworlAPI.swift in Sources */,
 				D46D502E281BB494004C71DC /* PersonDetailInfoProvider.swift in Sources */,
 				D48FE79727F7B5C500CCFBF1 /* PeopleLocalAPI.swift in Sources */,
+				D4222DEC282F05FD00F10672 /* FriendCell.swift in Sources */,
 				D426BFA927F8900200A11E9A /* Result.swift in Sources */,
 				D4AE370E2825BBD70080BA7F /* SearchResultProvider.swift in Sources */,
 				D489DE022802B8AA006FA729 /* PeopleDatabase.swift in Sources */,
