@@ -17,7 +17,7 @@ class FriendCell : UICollectionViewCell {
     }
     
     
-    private  let friendImage: UIImageView = meepImage(name: "sample",borderColor: primaryColor.cgColor,borderWidth: 1)
+    private  let friendImage: UIImageView = meepImage(name: "sample")
     
     private let friendName : UILabel = meepCaption(text: "",color: onBackgroundColor)
         
@@ -36,32 +36,18 @@ class FriendCell : UICollectionViewCell {
         setUpConstraints()
     }
     
+    
     func setUpConstraints() {
         friendImage.snp.makeConstraints { make in
             make.centerX.equalTo(contentView.snp.centerX)
             make.top.equalToSuperview().offset(16)
-            
-//            make.centerY.equalTo(self.contentView)
-//            make.leftMargin.equalTo(8)
-            
-            let dimensions = 64
+            let dimensions = 72
             make.width.equalTo(dimensions)
             make.height.equalTo(dimensions)
-            friendImage.layer.cornerRadius = CGFloat((dimensions / 2))
-        }
+            friendImage.layer.cornerRadius = friendImage.frame.size.width / 2
 
-//        friendImage.snp.makeConstraints { make in
-//            make.centerX.equalTo(contentView.snp.centerX)
-//            make.top.equalToSuperview().offset(16)
-//            let dimensions = 72
-//            make.width.equalTo(dimensions)
-//            make.height.equalTo(dimensions)
-//            friendImage.layer.cornerRadius = friendImage.frame.size.width / 2
-//
-//        }
-        
-       // friendImage.kf.setImage(with : URL(string : "https://picsum.photos/id/1/200/200"))
-        
+        }
+       
         friendName.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(friendImage.snp.bottom).offset(8)
             make.centerX.equalTo(contentView.snp.centerX)

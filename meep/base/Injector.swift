@@ -117,4 +117,35 @@ class Inject {
     func injectSearchResultProvider() -> SearchResultProvider {
         return injectPeopleRepository()
     }
+    
+    func injectProfileViewModel() -> ProfileViewModel {
+        registerDependencyIfNotRegistered(dependency: ProfileViewModel.self) { resolver in
+            ProfileViewModel(profileInfoProvider: dummy())
+        }
+        
+        return dependencyContainer.resolve(ProfileViewModel.self)!
+    }
+}
+
+class dummy : ProfileInformationProvider {
+    func getUserFriends() -> [Friend] {
+        return []
+    }
+    
+    func getUserProfileInformation() -> UserProfileInformation {
+        return UserProfileInformation(
+            name: "",
+            profilePicture: "",
+            friends: [
+                Friend(id: "1", name: "Ali", image: "https://picsum.photos/id/1/200/200"),
+                Friend(id: "2", name: "Veli", image: "https://picsum.photos/id/1/200/200"),
+                Friend(id: "3", name: "Mahmut", image: "https://picsum.photos/id/1/200/200"),
+                Friend(id: "4", name: "Şaban", image: "https://picsum.photos/id/1/200/200"),
+            ],
+            contactInformation: ContactInformation(email: "", phone: "", address: ""),
+            location: UserLocation(latitude: 0.0, longtitude: 0.0)
+        )
+    }
+    
+    
 }

@@ -25,8 +25,6 @@ class PersonListViewController: UIViewController, UNUserNotificationCenterDelega
     
     var observer : AnyCancellable? = nil
     
-    let userNotificationCenter = UNUserNotificationCenter.current()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = backgroundColor
@@ -46,73 +44,6 @@ class PersonListViewController: UIViewController, UNUserNotificationCenterDelega
         }
         
         personListViewModel.callPeopleList()
-        
-        
-        self.userNotificationCenter.delegate = self
-        self.requestNotificationAuthorization()
-        self.sendNotification()
-    }
-    
-    func requestNotificationAuthorization() {
-        let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
-        
-        self.userNotificationCenter.requestAuthorization(options: authOptions) { isGranted, error in
-            if let error = error {
-                  print("Error: ", error)
-            }
-        }
-    }
-
-    func sendNotification() {
-        // Create new notifcation content instance
-        let notificationContent = UNMutableNotificationContent()
-
-        // Add the content to the notification content
-        notificationContent.title = "Test"
-        notificationContent.body = "Test body"
-        notificationContent.badge = NSNumber(value: 3)
-        
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        
-        let request = UNNotificationRequest(
-            identifier: "testNotification",
-            content: notificationContent,
-            trigger: trigger
-        )
-        
-        
-        userNotificationCenter.add(request) { (error) in
-            if let error = error {
-                print("Notification Error: ", error)
-            }
-        }
-    }
-    
-    var sentTime = 0
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("userNotificationCenter 1st")
-        if sentTime < 5 {
-            sentTime += 1
-            sendNotification()
-        }
-        
-        completionHandler()
-    }
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-       
-        print("userNotificationCenter 2nd")
-      
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            if self.sentTime < 5 {
-                self.sentTime += 1
-                self.sendNotification()
-            }
-        }
-        
-        completionHandler([.alert, .badge, .sound])
     }
     
     override func viewDidLayoutSubviews() {

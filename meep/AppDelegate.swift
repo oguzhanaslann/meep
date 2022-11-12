@@ -10,8 +10,6 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -36,5 +34,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.applicationIconBadgeNumber = 0
         print("didReceive")
     }
-
 }
+
+
+//func requestNotificationAuthorization() {
+//    let authOptions = UNAuthorizationOptions.init(arrayLiteral: .alert, .badge, .sound)
+//
+//    self.userNotificationCenter.requestAuthorization(options: authOptions) { isGranted, error in
+//        if let error = error {
+//              print("Error: ", error)
+//        }
+//    }
+//}
+
+//        self.userNotificationCenter.delegate = self
+//      self.requestNotificationAuthorization()
+//func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+//
+//    print("userNotificationCenter 2nd")
+//
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+////            if self.sentTime < 5 {
+////                self.sentTime += 1
+////                self.sendNotification()
+////            }
+//    }
+//
+//    completionHandler([.alert, .badge, .sound])
+//}
+//class RandomNotificationSender {
+//
+//    func createNotification(userNotificationCenter : UNUserNotificationCenter) {
+//
+//        let notificationContent = UNMutableNotificationContent()
+//
+//        // Add the content to the notification content
+//        notificationContent.title = "Test"
+//        notificationContent.body = "Test body"
+//        notificationContent.badge = NSNumber(value: 3)
+//
+//
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//
+//        let request = UNNotificationRequest(
+//            identifier: "testNotification",
+//            content: notificationContent,
+//            trigger: trigger
+//        )
+//
+//        userNotificationCenter.add(request) { (error) in
+//            if let error = error {
+//                print("Notification Error: ", error)
+//            }
+//        }
+//
+//    }
+//}

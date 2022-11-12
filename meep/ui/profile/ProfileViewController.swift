@@ -7,9 +7,12 @@
 
 import Foundation
 import UIKit
+import Combine
 
 class ProfileViewController : UIViewController {
       
+    private let viewModel : ProfileViewModel = Inject.shared.injectProfileViewModel()
+    
     private let profileBackgroundView : UIStackView = {
         let stackView  = UIStackView()
         stackView.backgroundColor = primaryColor
@@ -42,6 +45,9 @@ class ProfileViewController : UIViewController {
         collectionView.backgroundColor = backgroundColor
         return collectionView
     }()
+    
+    var observer : AnyCancellable? = nil
+    var friends : [Friend] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +84,7 @@ class ProfileViewController : UIViewController {
         
         friendsList.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(friendsHeader.snp.bottom).offset(8)
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview()
             make.height.equalTo(120)
         }
@@ -106,6 +112,14 @@ class ProfileViewController : UIViewController {
         self.view.bringSubviewToFront(settingsIcon)
         
         
+        observer = viewModel.publisher.sink { profileInfo in
+            self.friends = profileInfo.friends
+            self.friendsList.reloadData()
+        }
+        
+        viewModel.getProfileInformation()
+        
+        
     }
 }
 
@@ -118,7 +132,7 @@ extension ProfileViewController: UICollectionViewDelegate,UICollectionViewDataSo
     }
         
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return friends.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
